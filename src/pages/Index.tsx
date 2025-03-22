@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { TimelineView } from '@/components/TimelineView';
+import { SearchView } from '@/components/SearchView';
+import { GraphView } from '@/components/GraphView';
+import { NoteEditor } from '@/components/NoteEditor';
+import { AppSidebarWrapper } from '@/components/Sidebar';
+import { NotesProvider, useNotes } from '@/lib/context';
+
+const Dashboard = () => {
+  const { currentView } = useNotes();
+  
+  return (
+    <div className="space-y-8">
+      <NoteEditor />
+      
+      <div>
+        {currentView === 'timeline' && <TimelineView />}
+        {currentView === 'search' && <SearchView />}
+        {currentView === 'graph' && <GraphView />}
+      </div>
+    </div>
+  );
+};
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <NotesProvider>
+      <AppSidebarWrapper>
+        <Dashboard />
+      </AppSidebarWrapper>
+    </NotesProvider>
   );
 };
 
