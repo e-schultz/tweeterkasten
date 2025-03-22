@@ -15,7 +15,7 @@ import {
   SidebarProvider,
   SidebarTrigger
 } from "@/components/ui/sidebar";
-import { Clock, Hash, Search, Graph, Github, Plus } from 'lucide-react';
+import { Clock, Hash, Search, Network, Github, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -66,7 +66,7 @@ export function AppSidebar() {
                   onClick={() => setCurrentView('graph')}
                   className={currentView === 'graph' ? 'bg-accent text-accent-foreground' : ''}
                 >
-                  <Graph className="h-4 w-4" />
+                  <Network className="h-4 w-4" />
                   <span>Graph View</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>

@@ -62,7 +62,7 @@ export function GraphView() {
         fontSize: '12px',
         fontWeight: 500,
         width: 100,
-        textAlign: 'center'
+        textAlign: 'center' as const // Fix: use 'as const' to make TypeScript recognize this as a valid TextAlign value
       },
     }));
     
