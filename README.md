@@ -1,69 +1,179 @@
-# Welcome to your Lovable project
 
-## Project info
+# Notum - Twitter-style Zettelkasten
 
-**URL**: https://lovable.dev/projects/100f03ab-566c-415b-91fd-811902c4bea5
+![Notum Banner](https://lovable.dev/opengraph-image-p98pqg.png)
 
-## How can I edit this code?
+## Project Description
 
-There are several ways of editing your application.
+Notum is a lightweight note-taking application inspired by the concept of using Twitter as a Zettelkasten system. It allows users to create short-form notes (similar to tweets) that can be interconnected through tags and references. The application embraces the Zettelkasten method's principles of atomic notes and meaningful connections while providing a familiar, social media-inspired interface.
 
-**Use Lovable**
+## Installation Instructions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/100f03ab-566c-415b-91fd-811902c4bea5) and start prompting.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-Changes made via Lovable will be committed automatically to this repo.
+### Setup
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/notum.git
+cd notum
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to `http://localhost:8080` to view the application.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Usage Instructions
 
-## What technologies are used for this project?
+### Creating Notes
+1. Enter your note in the text area at the top of the page (limited to 280 characters).
+2. Use hashtags (#) to create or link to tags (e.g., #idea, #concept).
+3. Click the "Create Note" button to save your note.
 
-This project is built with .
+### Viewing Notes
+- **Timeline View:** Shows all notes in chronological order (newest first).
+- **Graph View:** Visualizes the connections between notes and tags.
+- **Search View:** Allows you to search for notes by content or tags.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Managing Notes
+- Click the edit icon to modify a note.
+- Click the trash icon to delete a note.
+- Click the link icon to view related notes.
 
-## How can I deploy this project?
+### Using Tags
+- Create new tags by clicking the "+" button in the Tags section of the sidebar.
+- Add tags to notes by using the # symbol followed by the tag name.
 
-Simply open [Lovable](https://lovable.dev/projects/100f03ab-566c-415b-91fd-811902c4bea5) and click on Share -> Publish.
+![Notum App Screenshot](public/placeholder.svg)
 
-## I want to use a custom domain - is that possible?
+## Features
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- **Short-form Notes:** Create concise notes with a 280-character limit, similar to tweets.
+- **Tag System:** Organize and connect notes using hashtags.
+- **Multiple Views:**
+  - Timeline View for chronological browsing
+  - Graph View for visualizing connections
+  - Search View for finding specific notes
+- **Note Management:** Create, edit, and delete notes.
+- **Related Notes:** View notes that are connected to each other.
+- **Responsive Design:** Works on desktop and mobile devices.
+
+## Technologies Used
+
+- **React:** Frontend JavaScript library
+- **TypeScript:** Static type-checking
+- **Vite:** Build tool and development server
+- **Tailwind CSS:** Utility-first CSS framework
+- **shadcn/ui:** Component library based on Radix UI
+- **@xyflow/react:** React Flow library for graph visualization
+- **Lucide Icons:** SVG icon library
+- **date-fns:** Date utility library
+
+## Project Structure
+
+```
+src/
+├── components/         # React components
+│   ├── ui/             # UI components from shadcn
+│   ├── NoteCard.tsx    # Note display component
+│   ├── NoteEditor.tsx  # Component for creating notes
+│   ├── GraphView.tsx   # Graph visualization view
+│   ├── TimelineView.tsx # Chronological view of notes
+│   ├── SearchView.tsx  # Search interface
+│   └── Sidebar.tsx     # Application sidebar
+├── hooks/              # Custom React hooks
+├── lib/                # Utilities and shared code
+│   ├── context.tsx     # Notes context provider
+│   ├── types.ts        # TypeScript type definitions
+│   └── data.ts         # Sample data and helpers
+├── pages/              # Application pages
+└── App.tsx             # Main application component
+```
+
+## Contributing
+
+We welcome contributions to Notum! Here's how you can help:
+
+### Bug Reports and Feature Requests
+
+- Use the Issues tab to report bugs or request features.
+- Clearly describe the issue or feature, including steps to reproduce for bugs.
+
+### Code Contributions
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature-name`.
+3. Make your changes and commit them: `git commit -m "Add some feature"`.
+4. Push to the branch: `git push origin feature/your-feature-name`.
+5. Submit a pull request.
+
+### Code Style
+
+- Follow the existing code style.
+- Use TypeScript for type safety.
+- Write clear, concise comments.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Original Prompt
+
+The following is the original prompt that initiated the creation of this application:
+
+```
+Develop a note-taking application inspired by the concept of using Twitter as a Zettelkasten system. The application should allow users to create short-form notes (similar to tweets) that can be interconnected through tags, mentions, or other linking mechanisms. Implement features such as a timeline view to display notes chronologically, a graph view to visualize the connections between notes, and a search function to quickly find notes by keywords or tags. The application should also support basic text formatting and organization of notes into categories or folders. Consider the user interface and user experience to ensure ease of use and efficient knowledge management.
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Graph View Not Rendering:**
+   - Make sure you have a modern browser that supports the required features.
+   - Check console for errors related to @xyflow/react.
+
+2. **Search Not Working:**
+   - Ensure you're typing the correct tag format (#tagname).
+   - Try searching by content instead of tags.
+
+3. **Notes Not Saving:**
+   - Currently, notes are stored in memory and will be lost on page refresh. This is a limitation of the current implementation without a backend.
+
+### Debug Mode
+
+For developers, you can enable console logging by adding the following to your `.env` file:
+```
+VITE_DEBUG=true
+```
+
+## Future Improvements
+
+- **Backend Integration:** Add a database to persistently store notes and user data.
+- **Authentication:** Add user accounts and authentication.
+- **Rich Text Editor:** Enhance the note editor with more formatting options.
+- **Export/Import:** Allow exporting and importing notes in various formats.
+- **Collaboration:** Enable sharing and collaborative editing of notes.
+- **Mobile App:** Develop a native mobile application.
+- **Offline Support:** Implement offline capabilities using service workers.
+- **AI Integration:** Add AI-powered suggestions for connecting notes and generating insights.
+- **Custom Themes:** Allow users to customize the appearance of the application.
+
+---
+
+Created with ❤️ using [Lovable](https://lovable.dev)
+
